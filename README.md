@@ -27,7 +27,8 @@ The workflow runs on a daily schedule so that the marketing team always has up-t
 ---
 
 ## 🖼️ Workflow Example
-<img width="1164" height="804" alt="image" src="https://github.com/user-attachments/assets/6d8a3cdc-88fe-4501-80ec-6811521fb65e" />
+<img width="1014" height="737" alt="image" src="https://github.com/user-attachments/assets/8b892b49-1db2-443d-964d-524477b313f5" />
+
 
 
 ---

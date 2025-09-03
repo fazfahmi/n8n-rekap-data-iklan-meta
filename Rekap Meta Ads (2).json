@@ -1,0 +1,1885 @@
+{
+  "name": "Kiyoko Rekap Data",
+  "nodes": [
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        160
+      ],
+      "id": "19956cf4-e094-4484-ac8b-a42d7dfbb87a",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        336,
+        736
+      ],
+      "id": "62f9d969-4007-4d70-adb0-dc7372bfc8c0",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=act_592602529920070/insights?&date_preset=last_3d&\ntime_increment=1&\nlimit=5000&fields=campaign_name,spend",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        160
+      ],
+      "id": "4d33670a-881b-4cb0-9832-65e9f6f58907",
+      "name": "MT-LP-SH",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs",
+          "mode": "list",
+          "cachedResultName": "Database Kiyoko",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1247038951,
+          "mode": "list",
+          "cachedResultName": "FB-Shopee",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit#gid=1247038951"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tanggal": "={{ $json.date_start }}",
+            "Nama CS": "Shopee",
+            "Platform": "MT-LP-SH",
+            "Ads_Spend": "={{ $json.spend }}"
+          },
+          "matchingColumns": [
+            "Tanggal"
+          ],
+          "schema": [
+            {
+              "id": "Tanggal",
+              "displayName": "Tanggal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama CS",
+              "displayName": "Nama CS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closing",
+              "displayName": "Closing",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closing_Amount",
+              "displayName": "Closing_Amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ads_Spend",
+              "displayName": "Ads_Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        112,
+        160
+      ],
+      "id": "caf1abd9-62a8-4871-817a-81ae1403f980",
+      "name": "MT-LP-SH Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs",
+          "mode": "list",
+          "cachedResultName": "Database Kiyoko",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1674078634,
+          "mode": "list",
+          "cachedResultName": "FB-CPAS Raw",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit#gid=1674078634"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tanggal": "={{ $json.date_start }}",
+            "Ads_Spend": "={{ $json.spend }}",
+            "Platform": "MT-CPAS",
+            "Nama CS": "Shopee",
+            "Array Quantity": "={{ $json.converted_product_quantity }}",
+            "Array Value": "={{ $json.converted_product_value }}",
+            "Unique ID": "={{ $json.campaign_id }}{{ $json.date_start }}"
+          },
+          "matchingColumns": [
+            "Unique ID"
+          ],
+          "schema": [
+            {
+              "id": "Unique ID",
+              "displayName": "Unique ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tanggal",
+              "displayName": "Tanggal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama CS",
+              "displayName": "Nama CS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ads_Spend",
+              "displayName": "Ads_Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array Quantity",
+              "displayName": "Array Quantity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array Value",
+              "displayName": "Array Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        560,
+        736
+      ],
+      "id": "37f2072a-fb9a-40bf-87a2-92b9cbdb787b",
+      "name": "MT-CPAS Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -784,
+        640
+      ],
+      "id": "e823e333-62f8-48c2-b974-c16bfbb34dd9",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        -32
+      ],
+      "id": "017c5e7f-52e4-4058-aa27-f68a1ff870bd",
+      "name": "Split Out2"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=act_952040212527542/campaigns?fields=name",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        -32
+      ],
+      "id": "249d9ac9-0164-44d4-8950-72a4ad83eb62",
+      "name": "MT-LP-SH2",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d724bbb9-26ad-427d-8d56-1b1e799e1c85",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "LPtoshopee3",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        112,
+        -32
+      ],
+      "id": "851f5170-c954-43e1-9cba-d941c8f8fa05",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        560,
+        -128
+      ],
+      "id": "557405fb-c86b-4831-8120-9ebbe2355d19",
+      "name": "Split Out3"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        560,
+        160
+      ],
+      "id": "fff5d38b-2330-4243-898e-bcd81cda86d9",
+      "name": "Split Out4"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "={{ $json.id }}/insights?&date_preset=last_3d&\ntime_increment=1&\nlimit=5000&fields=campaign_name,spend",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        336,
+        -128
+      ],
+      "id": "1be3de61-ba48-41ab-a5e3-4f03ee0cc009",
+      "name": "MT-LP-SH3",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs",
+          "mode": "list",
+          "cachedResultName": "Database Kiyoko",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 456399947,
+          "mode": "list",
+          "cachedResultName": "FB-Shopee 2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit#gid=456399947"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tanggal": "={{ $json.date_start }}",
+            "Nama CS": "Shopee",
+            "Platform": "MT-LP-SH2",
+            "Ads_Spend": "={{ $json.spend }}",
+            "Campaign Name": "={{ $json.campaign_name }}",
+            "UniqueId": "={{ $json.date_start }}{{ $json.campaign_name }}"
+          },
+          "matchingColumns": [
+            "UniqueId"
+          ],
+          "schema": [
+            {
+              "id": "Tanggal",
+              "displayName": "Tanggal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama CS",
+              "displayName": "Nama CS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closing",
+              "displayName": "Closing",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closing_Amount",
+              "displayName": "Closing_Amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ads_Spend",
+              "displayName": "Ads_Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Campaign Name",
+              "displayName": "Campaign Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "UniqueId",
+              "displayName": "UniqueId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        784,
+        160
+      ],
+      "id": "b9d1438d-da61-4003-a7ae-696fa41ea15f",
+      "name": "MT-LP-SH2 Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "={{ $json.id }}/insights?&date_preset=last_3d&\ntime_increment=1&\nlimit=5000&fields=campaign_name,spend",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        336,
+        160
+      ],
+      "id": "ac3a4b17-ec8d-4c81-a09a-914cd85c7185",
+      "name": "MT-LP-SH5",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs",
+          "mode": "list",
+          "cachedResultName": "Database Kiyoko",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 635609970,
+          "mode": "list",
+          "cachedResultName": "FB-Shopee 3",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit#gid=635609970"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tanggal": "={{ $json.date_start }}",
+            "Nama CS": "Shopee",
+            "Platform": "MT-LP-SH3",
+            "Ads_Spend": "={{ $json.spend }}",
+            "Campaign Name": "={{ $json.campaign_name }}",
+            "UniqueId": "={{ $json.date_start }}{{ $json.campaign_name }}"
+          },
+          "matchingColumns": [
+            "UniqueId"
+          ],
+          "schema": [
+            {
+              "id": "Tanggal",
+              "displayName": "Tanggal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama CS",
+              "displayName": "Nama CS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closing",
+              "displayName": "Closing",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closing_Amount",
+              "displayName": "Closing_Amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ads_Spend",
+              "displayName": "Ads_Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Campaign Name",
+              "displayName": "Campaign Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "UniqueId",
+              "displayName": "UniqueId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        784,
+        -128
+      ],
+      "id": "67af486f-ac0d-450c-bb76-3b498b63d426",
+      "name": "MT-LP-SH3 Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        352
+      ],
+      "id": "1674f23f-14c5-495b-9639-1b0b3c323301",
+      "name": "Split Out5"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=act_547506151531496/insights?&date_preset=last_3d&\ntime_increment=1&\nlimit=5000&fields=campaign_name,spend",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        352
+      ],
+      "id": "5f0af530-ac10-4b29-8374-f719f6658f5c",
+      "name": "MT-LP-SH-BGR",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs",
+          "mode": "list",
+          "cachedResultName": "Database Kiyoko",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1310958633,
+          "mode": "list",
+          "cachedResultName": "FB-Shopee-BGR",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit#gid=1310958633"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tanggal": "={{ $json.date_start }}",
+            "Nama CS": "Shopee",
+            "Platform": "MT-LP-SH-BGR",
+            "Ads_Spend": "={{ $json.spend }}"
+          },
+          "matchingColumns": [
+            "Tanggal"
+          ],
+          "schema": [
+            {
+              "id": "Tanggal",
+              "displayName": "Tanggal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama CS",
+              "displayName": "Nama CS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closing",
+              "displayName": "Closing",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Closing_Amount",
+              "displayName": "Closing_Amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ads_Spend",
+              "displayName": "Ads_Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        112,
+        352
+      ],
+      "id": "068008ef-0e27-43f6-a599-674251e46102",
+      "name": "MT-LP-SH-BGR Sheets1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        832
+      ],
+      "id": "a96b4f60-86f2-49d1-a41d-30d7e8085e6e",
+      "name": "Split Out6"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=act_666824929668166/insights?limit=5000&fields=campaign_name,campaign_id,converted_product_value,converted_product_quantity,spend&date_preset=last_3d&time_increment=1&attribution_windows=[\"7d_click\", \"1d_view\"]&time_zone=Asia/Jakarta",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        832
+      ],
+      "id": "e99d7b59-1c91-4a6d-b84f-bdf8957083fc",
+      "name": "MT-CPAS-BGR",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs",
+          "mode": "list",
+          "cachedResultName": "Database Kiyoko",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1470817032,
+          "mode": "list",
+          "cachedResultName": "FB-CPAS-BGR RAW",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit#gid=1470817032"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Array Value": "={{ $json.converted_product_value }}",
+            "Array Quantity": "={{ $json.converted_product_quantity }}",
+            "Tanggal": "={{ $json.date_start }}",
+            "Platform": "MT-CPAS-BGR",
+            "Nama CS": "Shopee",
+            "Ads_Spend": "={{ $json.spend }}"
+          },
+          "matchingColumns": [
+            "Tanggal"
+          ],
+          "schema": [
+            {
+              "id": "Tanggal",
+              "displayName": "Tanggal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama CS",
+              "displayName": "Nama CS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ads_Spend",
+              "displayName": "Ads_Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array Quantity",
+              "displayName": "Array Quantity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array Value",
+              "displayName": "Array Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -112,
+        832
+      ],
+      "id": "bd16fba4-8fdf-4ff1-a348-8fca7e92ef43",
+      "name": "MT-CPAS-BGR Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=act_894569359325813/insights?level=campaign&limit=5000\n&fields=campaign_name,campaign_id,actions,action_values,spend&date_preset=last_3d&time_increment=1&attribution_windows=[\"7d_click\",\"1d_view\"]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        1024
+      ],
+      "id": "e3c0be4d-968d-4a76-b215-7d1b9a23d61c",
+      "name": "MT-CTWA",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        1024
+      ],
+      "id": "9783d517-b2a8-4100-9801-9a3590d42720",
+      "name": "Split Out7"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs",
+          "mode": "list",
+          "cachedResultName": "Database Kiyoko",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1633539951,
+          "mode": "list",
+          "cachedResultName": "FB-CTWA Raw",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit#gid=1633539951"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "uniqueid": "={{ $json.date_start }}{{ $json.campaign_id }}",
+            "Date": "={{ $json.date_start }}",
+            "Platform": "MT-CTWA",
+            "Campaign Name": "={{ $json.campaign_name }}",
+            "Spend": "={{ $json.spend }}",
+            "Array": "={{ $json.actions }}"
+          },
+          "matchingColumns": [
+            "uniqueid"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Campaign Name",
+              "displayName": "Campaign Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Spend",
+              "displayName": "Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array",
+              "displayName": "Array",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "uniqueid",
+              "displayName": "uniqueid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -112,
+        1024
+      ],
+      "id": "737b098e-1956-435b-85cb-e9d931ef5012",
+      "name": "MT-CTWA Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        1216
+      ],
+      "id": "8590db68-6b3b-41fd-9e82-878d667afe66",
+      "name": "Split Out8"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=act_611396231430209/insights?limit=5000&fields=campaign_name,campaign_id,converted_product_value,converted_product_quantity,spend&date_preset=last_3d&time_increment=1&attribution_windows=[\"7d_click\", \"1d_view\"]&time_zone=Asia/Jakarta",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        1216
+      ],
+      "id": "53cec42c-1865-49ac-96e4-b1cf7810e619",
+      "name": "MT-CPAS-MDN",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs",
+          "mode": "list",
+          "cachedResultName": "Database Kiyoko",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1899100777,
+          "mode": "list",
+          "cachedResultName": "FB-CPAS-MDN RAW",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PoHcCrc8-xuN_QdZd0jeZR6mSKz2HOdLktfCnvAcSzs/edit#gid=1899100777"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Array Value": "={{ $json.converted_product_value }}",
+            "Array Quantity": "={{ $json.converted_product_quantity }}",
+            "Tanggal": "={{ $json.date_start }}",
+            "Platform": "MT-CPAS-MDN",
+            "Nama CS": "Shopee",
+            "Ads_Spend": "={{ $json.spend }}"
+          },
+          "matchingColumns": [
+            "Tanggal"
+          ],
+          "schema": [
+            {
+              "id": "Tanggal",
+              "displayName": "Tanggal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama CS",
+              "displayName": "Nama CS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ads_Spend",
+              "displayName": "Ads_Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array Quantity",
+              "displayName": "Array Quantity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array Value",
+              "displayName": "Array Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -112,
+        1216
+      ],
+      "id": "339f859a-a0a4-4146-8d28-5ccee832d21f",
+      "name": "MT-CPAS-MDN Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=act_688358216707423/campaigns?fields=name&limit=1000",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        640
+      ],
+      "id": "a73f18e6-ef13-49d4-9e54-c76594c135b5",
+      "name": "Split Campaign CPAS",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d724bbb9-26ad-427d-8d56-1b1e799e1c85",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "Manja",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -112,
+        640
+      ],
+      "id": "222370bb-cc38-41c4-99ee-ab5870eed766",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        640
+      ],
+      "id": "038fa0ed-0c35-4e14-a616-b2af1e24706a",
+      "name": "Split Out9"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "={{ $json.id }}/insights?limit=5000\n&fields=campaign_name,campaign_id,converted_product_value,converted_product_quantity,spend\n&date_preset=last_14d\n&time_increment=1\n&attribution_windows=7d_click,1d_view\n&time_zone=Asia/Jakarta",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        112,
+        736
+      ],
+      "id": "68e22824-2fcb-48b0-85ce-e11bdcac3e06",
+      "name": "MT-CPAS Kiyoko - Malang",
+      "executeOnce": false,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        336,
+        544
+      ],
+      "id": "66629b24-b4a7-4ead-a5c5-e97097330027",
+      "name": "Split Out10"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1-ALGIfnjRUp96oD6JIrxjpDf1qVrvdKOqbn7ImhKbEY",
+          "mode": "list",
+          "cachedResultName": "Database Manja Rapet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-ALGIfnjRUp96oD6JIrxjpDf1qVrvdKOqbn7ImhKbEY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 31365406,
+          "mode": "list",
+          "cachedResultName": "CPAS-MLG-RAW",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-ALGIfnjRUp96oD6JIrxjpDf1qVrvdKOqbn7ImhKbEY/edit#gid=31365406"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Array Value": "={{ $json.converted_product_value }}",
+            "Array Quantity": "={{ $json.converted_product_quantity }}",
+            "Ads_Spend": "={{ $json.spend }}",
+            "Tanggal": "={{ $json.date_start }}",
+            "Platform": "MT-CPAS",
+            "Nama CS": "Shopee",
+            "UniqueID": "={{ $json.campaign_id }}{{ $json.date_start }}"
+          },
+          "matchingColumns": [
+            "UniqueID"
+          ],
+          "schema": [
+            {
+              "id": "UniqueID",
+              "displayName": "UniqueID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tanggal",
+              "displayName": "Tanggal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama CS",
+              "displayName": "Nama CS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ads_Spend",
+              "displayName": "Ads_Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array Quantity",
+              "displayName": "Array Quantity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Array Value",
+              "displayName": "Array Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        560,
+        544
+      ],
+      "id": "fa23a747-e9b9-4196-bf04-ff59ff14c10a",
+      "name": "MT-CPAS Sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gYWXAVroeyiyzRSf",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "={{ $json.id }}/insights?limit=5000\n&fields=campaign_name,campaign_id,converted_product_value,converted_product_quantity,spend\n&date_preset=last_14d\n&time_increment=1\n&attribution_windows=7d_click,1d_view\n&time_zone=Asia/Jakarta",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        112,
+        544
+      ],
+      "id": "1337d504-7a2b-493b-8e14-863fb7f62bd1",
+      "name": "MT-CPAS Manja - Malang",
+      "executeOnce": false,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "g9ogXmSza8Ys372J",
+          "name": "Meta Kiyoko"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Schedule Trigger": [
+      {
+        "json": {
+          "timestamp": "2025-08-04T08:00:00.029+07:00",
+          "Readable date": "August 4th 2025, 8:00:00 am",
+          "Readable time": "8:00:00 am",
+          "Day of week": "Monday",
+          "Year": "2025",
+          "Month": "August",
+          "Day of month": "04",
+          "Hour": "08",
+          "Minute": "00",
+          "Second": "00",
+          "Timezone": "Asia/Jakarta (UTC+07:00)"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "MT-LP-SH Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "MT-CPAS Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-LP-SH": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Split Campaign CPAS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MT-CPAS-BGR",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MT-CTWA",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MT-CPAS-MDN",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MT-LP-SH2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MT-LP-SH",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out2": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-LP-SH2": {
+      "main": [
+        [
+          {
+            "node": "Split Out2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "MT-LP-SH3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MT-LP-SH5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out3": {
+      "main": [
+        [
+          {
+            "node": "MT-LP-SH3 Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out4": {
+      "main": [
+        [
+          {
+            "node": "MT-LP-SH2 Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-LP-SH3": {
+      "main": [
+        [
+          {
+            "node": "Split Out3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-LP-SH5": {
+      "main": [
+        [
+          {
+            "node": "Split Out4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out5": {
+      "main": [
+        [
+          {
+            "node": "MT-LP-SH-BGR Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-LP-SH-BGR": {
+      "main": [
+        [
+          {
+            "node": "Split Out5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out6": {
+      "main": [
+        [
+          {
+            "node": "MT-CPAS-BGR Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-CPAS-BGR": {
+      "main": [
+        [
+          {
+            "node": "Split Out6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-CTWA": {
+      "main": [
+        [
+          {
+            "node": "Split Out7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out7": {
+      "main": [
+        [
+          {
+            "node": "MT-CTWA Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out8": {
+      "main": [
+        [
+          {
+            "node": "MT-CPAS-MDN Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-CPAS-MDN": {
+      "main": [
+        [
+          {
+            "node": "Split Out8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Campaign CPAS": {
+      "main": [
+        [
+          {
+            "node": "Split Out9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out9": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "MT-CPAS Manja - Malang",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MT-CPAS Kiyoko - Malang",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-CPAS Kiyoko - Malang": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out10": {
+      "main": [
+        [
+          {
+            "node": "MT-CPAS Sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MT-CPAS Manja - Malang": {
+      "main": [
+        [
+          {
+            "node": "Split Out10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Jakarta",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "de8c9dac-898e-48f2-9b7d-6073f12f4d79",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "30a542fabf9ae4909bd9aa0c6efc1fe1ebc393cf7a234191691a5d508c2a9bcb"
+  },
+  "id": "X3ENGDwMSY091GJC",
+  "tags": []
+}

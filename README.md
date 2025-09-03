@@ -1,39 +1,40 @@
-# 📊 n8n Workflow – Kiyoko Rekap Data
+# 📊 n8n Workflow – Kiyoko Data Recap
 
-## 📝 Deskripsi
-Workflow ini dibuat menggunakan **n8n** untuk mengotomatisasi proses **penarikan data iklan dari Meta (Facebook Ads)** melalui **Facebook Graph API**, kemudian menyimpannya ke **Google Sheets**.  
-Workflow berjalan secara terjadwal sehingga tim marketing selalu memiliki data performa iklan terbaru tanpa harus melakukan input manual.
+## 📝 Description
+This workflow was built using **n8n** to automate the process of **retrieving advertising data from Meta (Facebook Ads)** via the **Facebook Graph API** and storing it in **Google Sheets**.  
+The workflow runs on a daily schedule so that the marketing team always has up-to-date performance data without manual input.
 
 ---
 
-## ⚙️ Alur Workflow
+## ⚙️ Workflow Steps
 1. **Schedule Trigger**  
-   - Workflow dijalankan otomatis setiap hari pukul 08:00 WIB.  
+   - The workflow runs automatically every day at 08:00 (GMT+7).  
 
 2. **Facebook Graph API Nodes**  
-   - Mengambil data kampanye iklan (`campaign_name`, `spend`, `conversion`, dsb).  
-   - Beberapa node digunakan untuk berbagai akun/ID kampanye.  
+   - Pulls campaign data (`campaign_name`, `spend`, `conversion`, etc.).  
+   - Multiple nodes are used for different accounts or campaign IDs.  
 
 3. **Split Out Node**  
-   - Memecah array `data` dari Graph API agar setiap record bisa diproses per baris.  
+   - Splits the `data` array from the Graph API into individual records for processing.  
 
 4. **If Node (Conditional)**  
-   - Menyaring campaign tertentu sesuai nama/ID.  
+   - Filters specific campaigns by name or ID.  
 
 5. **Google Sheets Nodes**  
-   - Menyimpan data hasil extract ke beberapa sheet berbeda (contoh: **FB-Shopee**, **FB-CPAS Raw**, **FB-CTWA Raw**).  
-   - Menggunakan `Unique ID` atau `Tanggal` sebagai kunci update agar tidak duplikat.  
+   - Appends or updates the extracted data into multiple Google Sheets (e.g., **FB-Shopee**, **FB-CPAS Raw**, **FB-CTWA Raw**).  
+   - Uses `Unique ID` or `Date` as the key to prevent duplicates.  
 
 ---
 
-## 🖼️ Contoh Workflow
-*(Tambahkan screenshot editor n8n di sini, misalnya `workflow-editor.png`)*  
+## 🖼️ Workflow Example
+<img width="1164" height="804" alt="image" src="https://github.com/user-attachments/assets/6d8a3cdc-88fe-4501-80ec-6811521fb65e" />
+
 
 ---
 
-## 📂 Struktur Repository
+## 📂 Repository Structure
 ```bash
-📁 n8n-kiyoko-rekap-data
- ┣ 📄 Kiyoko Rekap Data.json   # Export workflow dari n8n (dummy credential)
- ┣ 📄 README.md                # Dokumentasi workflow
- ┗ 📂 screenshots              # Screenshot editor n8n & contoh output
+📁 n8n-kiyoko-data-recap
+ ┣ 📄 Kiyoko Data Recap.json   # Exported workflow from n8n (with dummy credentials)
+ ┣ 📄 README.md                # Workflow documentation
+ ┗ 📂 screenshots              # n8n editor & output examples
